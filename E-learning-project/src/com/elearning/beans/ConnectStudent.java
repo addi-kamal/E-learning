@@ -2,9 +2,11 @@ package com.elearning.beans;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
+
 import java.sql.*;
 
-@ManagedBean
+@ManagedBean  
 @SessionScoped
 public class ConnectStudent {
 	String email;
@@ -19,25 +21,52 @@ public class ConnectStudent {
 	
 	public ConnectStudent() {	
 	}
-	
+	public String verify1() {
+		Connection conn = null;		
+		PreparedStatement stmt = null;
+		boolean verified = false;
+		try {
+			Class.forName(JDBC_DRIVER); 
+			System.out.println("insertStudent() connecting....");	
+			// create connection to our local database
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			String sql = "SELECT id FROM students WHERE email = "+"'"+email+"' AND password = '"+password+"';";
+
+			ResultSet rs = stmt.executeQuery(sql);		
+			Long idNewRows;
+			if(rs.next()) {
+				verified = true;
+			}
+			rs.close();
+			stmt.close();
+			conn.close();		
+		} catch (Exception se) {
+			return "erroe.xhtml";
+		}
+		if(verified) {
+			return "todo.xhtml";
+		}
+		else
+			return null;
+	}
 	public String verify() {
 		// create connection to our local database
 			Connection conn = null;		
 			Statement stmt = null;
 			boolean verified = false;
 			try {
-				Class.forName(JDBC_DRIVER); 
-				conn = DriverManager.getConnection(DB_URL, USER, PASS);			
+				Class.forName("com.mysql.cj.jdbc.Driver"); 
+				System.out.println("insertStudent() connecting....");
+				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/MyDBUsers?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC", "JDBCUser", "PWDUSER");			
 				stmt = conn.createStatement();
 				String sql;
-				sql = "SELECT `id` FROM `Users` WHERE `email` = "+"'"+email+"' AND `password` = '"+password+"';";
+				sql = "SELECT id FROM students WHERE email = "+"'"+email+"' AND password = '"+password+"';";
 				ResultSet rs = stmt.executeQuery(sql);
 				if(rs.next())
 					verified = true;
 				rs.close();
 				stmt.close();
 				conn.close();
-				
 			} catch (Exception se) {
 				return "erroe.xhtml";
 			}

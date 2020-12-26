@@ -2,6 +2,7 @@ package com.elearning.beans;
 
 import javax.faces.bean.ManagedBean;
 
+@SuppressWarnings("deprecation")
 @ManagedBean
 public class Inscription {
 	private String prenom, nom, email,telephone, CNE, ville, pays, password, niveau, dateNaissance, sexe, code_postal;

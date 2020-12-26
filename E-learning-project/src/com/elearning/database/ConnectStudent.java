@@ -30,7 +30,7 @@ public class ConnectStudent {
 				conn = DriverManager.getConnection(DB_URL, USER, PASS);			
 				stmt = conn.createStatement();
 				String sql;
-				sql = "SELECT `id` FROM `Users` WHERE `email` = "+"'"+email+"' AND `password` = '"+password+"';";
+				sql = "SELECT id FROM students WHERE email = "+"'"+email+"' AND password = '"+password+"';";
 				ResultSet rs = stmt.executeQuery(sql);
 				if(rs.next())
 					verified = true;
@@ -42,10 +42,11 @@ public class ConnectStudent {
 				return "erroe.xhtml";
 			}
 			if(verified) {
-				return "todo.xhtml";
+				return "MyApp.xhtml";
 			}
-			else
+			else {
 				return null;
+			}
 		
 	}
 

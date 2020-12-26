@@ -2,6 +2,7 @@ package com.elearning.database;
 
 import java.sql.*;
 import com.elearning.beans.Student;
+import com.elearning.users.User;
 public class ConnectJDBC {
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -15,7 +16,7 @@ public class ConnectJDBC {
 		PreparedStatement stmt = null;
 		try {
 			Class.forName(JDBC_DRIVER); 
-			System.out.println("insertStudent() connecting....");	
+			
 			// create connection to our local database
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			String sql = "INSERT INTO students"
@@ -43,7 +44,7 @@ public class ConnectJDBC {
 			try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
 				if (generatedKeys.next()) {
 					idNewRows = generatedKeys.getLong(1);
-					System.out.println("id of new object :"+idNewRows);
+					
 				}
 				else {
 					throw new SQLException("Creating failed, no id obtained");
