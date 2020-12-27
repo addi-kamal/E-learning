@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+       xmlns:f="http://java.sun.com/jsf/core" 
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:p="http://primefaces.org/ui"> 
+    <h:head>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+        <meta charset="utf-8" />
+        <title>Ajouter un cours</title>
+        <style type="text/css">
+        .tableUpdated {
+            width: 90% !important;
+            margin: 17px 58px 0 !important;
+        }    
+    </style>
+    </h:head>
+    <h:body>
+      <div class="container">
+      <h2>Ajouter un cours</h2>
+      <h:form>
+            <div class="form-group row">
+	     	<h:outputLabel for="titre" class="col-md-2 col-form-label">Titre: </h:outputLabel>
+	     	<div class="col-md-3">
+	        <h:inputText class="form-control" id="titre" value="#{cours.titre}" required="true" requiredMessage="title is required" />
+	        </div>
+           </div>
+           <br />
+            <div class="form-group row">
+	        <h:outputLabel for="subject" class="col-md-2 col-form-label">Subject: </h:outputLabel>
+	         <div class="col-md-3">
+	        <h:inputText class="form-control" id="subject" value="#{cours.subject}" required="true"/>
+	        </div>
+	        </div>
+	        <br />
+	        <div class="form-group row">
+	        <h:outputLabel for="language" class="col-md-2 col-form-label">Langue: </h:outputLabel>
+	        <div class="col-md-3">
+	        <h:inputText class="form-control" id="language" value="#{cours.language}" required="true" />
+	        </div>
+	        </div>
+	        <br />
+	        <div class="form-group row">
+	        <h:outputLabel for="estimatedTime" class="col-md-2 col-form-label">Temps estime: </h:outputLabel>
+	        <div class="col-md-3">
+	        <h:inputText class="form-control" id="estimatedTime" value="#{cours.estimatedTime}" required="true" />
+	        </div>
+	        </div>
+	        <br />
+	        <div class="form-group row">
+	       <h:outputLabel for="prix" class="col-md-2 col-form-label">Prix: </h:outputLabel>
+	       <div class="col-md-3">
+	        <h:inputText class="form-control" id="prix" value="#{cours.prix}" required="true" />
+	        </div>
+	        </div>
+	        <br />
+	        <div class="form-group row">
+	        <div class="offset-md-2 col-md-8">
+	        <p:commandButton  value="Ajouter" action="#{cours.saveCours(cours,user.nom,user.prenom,user.currentid)}"  class="btn btn-primary active " />
+	        </div>
+	        </div>
+	        <br />
+	        <br />
+        </h:form> 
+        </div>
+    </h:body>
+</html>

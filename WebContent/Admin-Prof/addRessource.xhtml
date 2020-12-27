@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+       xmlns:f="http://java.sun.com/jsf/core" 
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:p="http://primefaces.org/ui"> 
+    <h:head>
+         <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+        <meta charset="utf-8" />
+        <title>Ajouter une ressource</title>
+    </h:head>
+    <h:body>
+      <div class="container">
+      <h1>Ajouter une ressource</h1>
+      <h:form enctype="multipart/form-data"  prependId="false">
+      <div class="form-group row">
+      <h:outputText for="nom" class="col-md-2 col-form-label" value="Nom: "></h:outputText>
+      <div class="col-md-3">
+      <h:inputText class="form-control" id="nom" value="#{ressource.nom}" required="true" requiredMessage="title is required" />
+      </div>
+	  </div>
+      <br />
+      <div class="form-group row">
+      <h:outputText for="lesson" class="col-md-2 col-form-label" value="Lesson: "></h:outputText>
+      <div class="col-md-3">
+      <h:inputText class="form-control" id="lesson" value="#{ressource.lesson}" required="true"  />
+      </div>
+	  </div>
+      <br />
+      <div class="form-group row">
+      <h:outputText for="file" class="col-md-2 col-form-label" value="File: "></h:outputText>
+      <div class="col-md-3">
+      <h:inputFile  class="form-control" id="file"  value="#{ressource.uploadedFile}"  />
+      </div>
+	  </div>
+      <br />
+      <div class="form-group row">
+	  <div class="offset-md-2 col-md-8">
+      <h:commandButton class="btn btn-primary active " value="Enregistrer" type="submit" action="${ressource.saveRessource(ressource.lesson,user.currentid,ressource,user.nom,user.prenom)}" ></h:commandButton>
+            </div>
+	        </div>
+	        <br />
+	        <br />
+        </h:form> 
+        </div>
+    	
+    </h:body>
+</html>
