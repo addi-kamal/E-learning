@@ -8,8 +8,8 @@
 	      <title>Se Connecter</title>
 	      <meta charset="utf-8" name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
 	      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	      <link rel="stylesheet" href="app.v2.css" type="text/css"/>
-	      <link rel="stylesheet" href="font.css" type="text/css"/>
+	      <link rel="stylesheet" href="../../css/app.v2.css" type="text/css"/>
+	      <link rel="stylesheet" href="../../css/font.css" type="text/css"/>
     </h:head>
     <h:body>
         <section id="content" class="m-t-lg wrapper-md animated fadeInUp">
@@ -20,14 +20,14 @@
                   <header class="panel-heading text-center"> Sign in </header>
 				        <h:form style="width:250px;margin: 0 auto;">
 								<div class="form-group"> <label class="control-label">Email</label>
-								<h:inputText p:type="email" p:placeholder="username@example.com" class="form-control" value="#{user.email}"/> 
+								<h:inputText p:type="email" p:placeholder="username@example.com" class="form-control" value="#{connectStudent.email}"/> 
 								</div>
 								
 								<div class="form-group"> <label class="control-label">Password</label> 
-	                            <h:inputSecret p:type="password" id="inputPassword" p:placeholder="Password" class="form-control" value="#{user.password}"/> 
+	                            <h:inputSecret p:type="password" id="inputPassword" p:placeholder="Password" class="form-control" value="#{connectStudent.password}"/> 
 	                            </div>
-	                        <h:commandButton action="#{user.verify()}" value="Se connecter" class="btn btn-info" style="float:left"/>	
-	                        <a href="http://localhost:8080/E-learning-project/Etudiant/CreateAccount.xhtml" class="btn btn-info">Creer une compte</a> 
+	                        <h:commandButton action="#{connectStudent.verify()}" value="Se connecter" class="btn btn-info" style="float:left"/>	
+	                        <a href="CreateAccount.xhtml" class="btn btn-info">Creer une compte</a> 
 					    </h:form>
                </section>
             </div>

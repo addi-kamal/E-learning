@@ -3266,13 +3266,7 @@ tbody.collapse.in {
     color: #777;
 }
 .dropdown-menu>.disabled>a:hover,
-.dropdown-menu>.disabled>a:focus {
-    text-decoration: none;
-    cursor: not-allowed;
-    background-color: transparent;
-    background-image: none;
-    filter: DXImageTransform.Microsoft.gradient(enabled false);
-}
+
 .open>.dropdown-menu {
     display: block;
 }
@@ -5854,24 +5848,7 @@ button.close {
     filter: alpha(opacity=50);
     opacity: .5;
 }
-.carousel-control.left {
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 100%);
-    background-image: -o-linear-gradient(left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 100%);
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, .0001)));
-    background-image: linear-gradient(to right, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 100%);
-    filter: DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
-    background-repeat: repeat-x;
-}
-.carousel-control.right {
-    right: 0;
-    left: auto;
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);
-    background-image: -o-linear-gradient(left, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)), to(rgba(0, 0, 0, .5)));
-    background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);
-    filter: DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
-    background-repeat: repeat-x;
-}
+
 .carousel-control:hover,
 .carousel-control:focus {
     color: #fff;
@@ -6280,7 +6257,6 @@ button.close {
         display: none !important;
     }
 }
-@charset "UTF-8";
 body {
     -webkit-backface-visibility: hidden;
 }
@@ -9622,46 +9598,7 @@ body {
         transform: rotate(359deg)
     }
 }
-.fa-rotate-90 {
-    filter: DXImageTransform.Microsoft.BasicImage(rotation=1);
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg)
-}
-.fa-rotate-180 {
-    filter: DXImageTransform.Microsoft.BasicImage(rotation=2);
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg)
-}
-.fa-rotate-270 {
-    filter: DXImageTransform.Microsoft.BasicImage(rotation=3);
-    -webkit-transform: rotate(270deg);
-    -moz-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    transform: rotate(270deg)
-}
-.fa-flip-horizontal {
-    filter: DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
-    -webkit-transform: scale(-1, 1);
-    -moz-transform: scale(-1, 1);
-    -ms-transform: scale(-1, 1);
-    -o-transform: scale(-1, 1);
-    transform: scale(-1, 1)
-}
-.fa-flip-vertical {
-    filter: DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
-    -webkit-transform: scale(1, -1);
-    -moz-transform: scale(1, -1);
-    -ms-transform: scale(1, -1);
-    -o-transform: scale(1, -1);
-    transform: scale(1, -1)
-}
+
 .fa-stack {
     position: relative;
     display: inline-block;
@@ -13098,15 +13035,6 @@ fieldset[disabled] .btn-gplus.active {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
     -webkit-transition: left 0.2s;
     transition: left 0.2s;
-}
-.bg-gradient {
-    background-image: -webkit-gradient(linear, left 0, left 100%, from(rgba(40, 50, 60, 0)), to(rgba(40, 50, 60, 0.05)));
-    background-image: -webkit-linear-gradient(top, rgba(40, 50, 60, 0), 0, rgba(40, 50, 60, 0.05), 100%);
-    background-image: -moz-linear-gradient(top, rgba(40, 50, 60, 0) 0, rgba(40, 50, 60, 0.05) 100%);
-    background-image: linear-gradient(to bottom, rgba(40, 50, 60, 0) 0, rgba(40, 50, 60, 0.05) 100%);
-    background-repeat: repeat-x;
-    filter: DXImageTransform.Microsoft.gradient(startColorstr='#0028323c', endColorstr='#0c28323c', GradientType=0);
-    filter: none;
 }
 .bg-light {
     background-color: #ebeef5;
