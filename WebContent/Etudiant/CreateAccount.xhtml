@@ -8,8 +8,8 @@
 	      <title>S'inscrire</title>
 	      <meta charset="utf-8" name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
 	      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	      <link rel="stylesheet" href="../../css/app.v2.css" type="text/css"/>
-	      <link rel="stylesheet" href="../../css/font.css" type="text/css"/>
+	      <link rel="stylesheet" href="/E-learning-project/Etudiant/app.v2.css" type="text/css"/>
+	      <link rel="stylesheet" href="/E-learning-project/Etudiant/font.css" type="text/css"/>
     </h:head>
     <h:body>
         <section id="content" class="m-t-lg wrapper-md animated fadeInUp">
@@ -18,49 +18,49 @@
             <div class="col-md-4 col-md-offset-4 m-t-lg">
                <section class="panel">
                   <header class="panel-heading text-center"> Sign up </header>
-				        <h:form style="width:250px;margin: 0 auto;">
-				        		
+				        <form action="/E-learning-project/signup" style="width:250px;margin: 0 auto;" method="post" >
 								<div class="form-group"> <label class="control-label">Prenom :</label>
-								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.prenom}"/> 
+								<input type="text" name="prenom" class="form-control" value="#{addStudent.user.prenom}" required="true"/> 
 								</div>
 								<div class="form-group"> <label class="control-label">Nom :</label>
-								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.nom}"/> 
+								<input type="text" name="nom" class="form-control" value="#{addStudent.user.nom}" required="true"/> 
 								</div>
 								<div class="form-group"> <label class="control-label">Email :</label>
-								<h:inputText p:type="email" p:placeholder="username@example.com" class="form-control" value="#{addStudent.student.email}"/> 
+								<input type="email" name="email" placeholder="username@example.com" class="form-control" value="#{addStudent.user.email}" required="true"/> 
 								</div>
 								<div class="form-group"> <label class="control-label">Telephone :</label>
-								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.telephone}"/> 
+								<input p:type="text" name="tel" class="form-control" value="#{addStudent.user.telephone}" required="true"/> 
 								</div>
-								<div class="form-group"> <label class="control-label">CNE :</label>
-								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.CNE}"/> 
-								</div>
-								<div class="form-group"> <label class="control-label">Code Postal :</label>
-								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.code_postal}"/> 
-								</div>
+								<!--<div class="form-group"> <label class="control-label">CNE :</label>
+								<input type="text" name="cne" class="form-control"/> 
+								</div>-->
+								<!--<div class="form-group"> <label class="control-label">Code Postal :</label>
+								<input type="text" name="code_postal" class="form-control" value="#{addStudent.user.code_postal}"/> 
+								</div> -->
 								<div class="form-group"> <label class="control-label">Date de naissance :</label>
-								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.dateNaissance}"/> 
+								<input type="date" name="dateNaissance" class="form-control" value="#{addStudent.user.dateNaissance}"/> 
 								</div>
-								<div class="form-group"> <label class="control-label">Niveau :</label>
-								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.niveau}"/> 
+								<!--<div class="form-group"> <label class="control-label">Niveau :</label>
+								<input type="text" name="niveau" class="form-control" value="#{addStudent.user.niveau}"/> 
 								</div>
 								<div class="form-group"> <label class="control-label">Pays :</label>
-								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.pays}"/> 
+								<input p:type="text" name="pays" class="form-control" value="#{addStudent.user.pays}"/> 
 								</div>
-								<div class="form-group"> <label class="control-label">Ville :</label>
-								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.ville}"/> 
-								</div>
+								<div class="form -group"> <label class="control-label">Ville :</label>
+								<input type="text" name="ville" class="form-control" value="#{addStudent.user.ville}"/> 
+								</div> -->
 								<div class="form-group"> <label class="control-label">Sexe :</label>
-								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.sexe}"/> 
+									<input type="radio" id="male" name="sexe" value="M" /><label for="male">Homme</label>
+									<input type="radio" id="female" name="sexe" value="F" /><label for="female">Femme</label>
 								</div>
 								<div class="form-group"> <label class="control-label">Password</label> 
-	                            <h:inputSecret p:type="password" id="inputPassword" class="form-control" value="#{addStudent.student.password}"/> 
+	                            <input type="password" name="password" id="inputPassword" class="form-control" value="#{addStudent.user.password}" required="true"/> 
 	                            </div>
+	                        <input type="submit" value="S'inscrire" class="btn btn-info" style="float:left"/>
+	                        <!--<h:commandButton action="#{addStudent.saveStudent()}" value="S'inscrire" class="btn btn-info" style="float:left"/>-->	
+	                        <a href="SignIn.xhtml" class="btn btn-info" style="float:right">Se connecter</a>
 	                        
-	                        <h:commandButton action="#{addStudent.saveStudent()}" value="S'inscrire" class="btn btn-info" style="float:left"/>	
-	                        <h:commandButton action="SignIn" value="Se connecter" class="btn btn-info" style="float:right"/>
-	                        
-					    </h:form>
+					    </form>
                </section>
             </div>
          </div>

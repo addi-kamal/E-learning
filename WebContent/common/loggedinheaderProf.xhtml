@@ -5,10 +5,12 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">	
 			<a href=""><img class="logo" src="images/logoAjiTa9raa.png" /></a>
-				<ul class="nav">
-					<li><a href="">cours</a></li>
-					<li><a href="">instructeurs</a></li>
-				</ul>
+		        <ul class="nav">
+					<li><a href="index.xhtml">Main</a></li>
+					<li><a href="/E-learning-project/Professeur/addCours">Ajouter Cours</a></li>
+					<li><a href="Espace_discussion/Espace_discussion.xhtml?faces-redirect=true">Forum</a></li>
+					<!-- <li><a href="">instructeurs</a></li>-->	
+				</ul> 	
 				<h:form>
 					<div class="search">
 						<h:inputText a:placeholder="chercher..." name="search-query" value="#{search.query}"></h:inputText>

@@ -100,14 +100,19 @@ html{
 }
 
 
-.logo{
+.logo {
     float: left;
     margin: 10px 5px 10px 7px;
-    height: 40px;
-    width: 20%;
+    height: 20%;
+    width: 10%;
+    filter: invert(1);
 }
-
-
+.logo-main {
+    float: left;
+    margin: 10px 5px 10px 7px;
+    height: 25%;
+    width: 15%;
+}
 /*Nav Elements*/
 
 .nav{
@@ -126,14 +131,14 @@ html{
 .nav li a{
     text-decoration: none;
     text-transform: uppercase;
-    color: #F1F1F1;
+    color: #eeeeec;
     padding: 5px 8px 3px 8px;
     font-weight: bold;
     font-size: 15px;
     position: relative;
 }
-.nav li a:hover{
-    color: #fff;
+.nav li a:hover {
+    color: #ebedf4;
 }
 /*.nav li a::after{
     content: "";
@@ -201,17 +206,15 @@ html{
 
 
 /*background image*/
-.bg-image{
+.bg-image {
     position: relative;
     width: 100%;
-    height: 200px;
     overflow: hidden;
 }
-.bg-image img{
+.bg-image img {
     width: 100%;
-    height: 100%;
+    height: 23.5em;
 }
-
 
 /*end background image*/
 
