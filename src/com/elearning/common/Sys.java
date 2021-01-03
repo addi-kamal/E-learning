@@ -8,8 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.elearning.beans.User;
 import com.elearning.db.Connexion;
-import com.elearning.users.User;
 
 /**
  * @author rahima

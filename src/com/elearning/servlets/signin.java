@@ -11,11 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//import com.elearning.beans.User;
-//import com.elearning.db_javaee.UserDAO;
-
-import com.elearning.users.User;
 import com.elearning.db.Connexion;
+import com.elearning.beans.User;
 import com.elearning.common.Sys;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

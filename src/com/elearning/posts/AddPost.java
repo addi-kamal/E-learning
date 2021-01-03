@@ -5,42 +5,49 @@ import java.sql.*;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.servlet.http.HttpSession;
+
 import com.elearning.beans.*;
 
 @ManagedBean
 @RequestScoped
 public class AddPost {
-	Student student = new Student();
+	/*Student student = new Student();
 	String nom =student.getNom();
-	String prenom = student.getPrenom();
+	String prenom = student.getPrenom();*/
+	//String statut;
 	String text;
 	String time ="NOW()";
-	String id = student.getCNE();
-	String user = nom+prenom;
+	//String user = nom+prenom;
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost:3306/MyDBUsers?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+	static final String DB_URL = "jdbc:mysql://localhost:3306/elearning?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
 	// database credentials
-	String USER = "JDBCUser";
-	String PASS = "PWDUSER";
+	String USER = "root";
+	String PASS = "";
 	
-	public void addPostm() {
+	public void addPostm(User user) {
 		Connection conn = null;	
 		Statement stmt = null;
-		
+		System.out.println(user.getNom());
+		String nom =user.getNom();
+		String prenom = user.getPrenom();
+		String user1 = nom+' '+prenom;
+		/*if(user.getUser_type().equals("A")) {statut="Admin";}
+		else if(user.getUser_type().equals("P")) {statut="Professeur";}
+		else {statut = "Etudiant";}*/
 		try {
 			Class.forName(JDBC_DRIVER); 
 			System.out.println("connection to db");
 			// create connection to our local database
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			
-			String sql = "INSERT INTO Posts" + " (id, text, time, user) VALUES" + " ('"+id+"','"+text+"',"+time+",'"+user+"');";
+			String sql = "INSERT INTO Posts" + " (text, time, user) VALUES" + " ('"+text+"',"+time+",'"+user1+"');";
+			//String sql = "INSERT INTO Posts" + " (text, time, user,statut) VALUES" + " ('"+text+"',"+time+",'"+user1+"','"+statut+"');";
 			stmt = conn.createStatement();
 			
 			
 
 			Integer affectedRows = stmt.executeUpdate(sql);		
-			
 			if(affectedRows == 0) {
 				throw new SQLException("Creating row failed, no row affected");
 			}
@@ -66,15 +73,6 @@ public class AddPost {
 		  }
 		}
 	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
 	public String getText() {
 		return text;
 	}
@@ -91,20 +89,4 @@ public class AddPost {
 		this.time = time;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
-	}
-	
 }

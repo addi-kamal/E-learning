@@ -2,27 +2,28 @@ package com.elearning.database;
 
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import com.elearning.beans.Student;
+import javax.faces.bean.SessionScoped;
+
+import com.elearning.beans.User;
+
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class AddStudent {
-	private Student student = new Student();
-	private ConnectJDBC connectJDBC = new ConnectJDBC();
-	
-
-	public Student getStudent() {
-		return student;
+	private User user = new User();
+	//private ConnectJDBC connectJDBC = new ConnectJDBC();
+	public User getUser() {
+		return user;
 	}
 
-	public void setStudent(Student student) {
-		this.student = student;
+	public void setStudent(User user) {
+		this.user = user;
 	}
-	public String saveStudent() {
-		// enregistrer les etudiants au base de données
-		connectJDBC.insertStudent(student);
-		return "SignIn";
-	}
+	/*public String saveStudent() {
+		// enregistrer les etudiants au base de donnï¿½es
+		//ConnectJDBC.insertStudent(user);
+		
+		return "/E-learning-project/signup";
+	}*/
 	
 	
 }

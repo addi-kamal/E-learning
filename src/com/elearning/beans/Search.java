@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-import com.elearning.common.Instructeur;
 import com.elearning.db.Connexion;
 
 @ManagedBean

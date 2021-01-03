@@ -18,10 +18,10 @@ public class Posts {
 	
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost:3306/MyDBUsers?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+	static final String DB_URL = "jdbc:mysql://localhost:3306/elearning?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
 	// database credentials
-	String USER = "JDBCUser";
-	String PASS = "PWDUSER";
+	String USER = "root";
+	String PASS = "";
 	
 	
 	public Posts() {
@@ -45,7 +45,7 @@ public class Posts {
 					p.name = rs.getString("user");
 					p.text = rs.getString("text");
 					p.time = rs.getString("time").toString();
-					
+					//p.statut= rs.getString("statut");
 					postsList.add(p);
 				}
 				rs.close();

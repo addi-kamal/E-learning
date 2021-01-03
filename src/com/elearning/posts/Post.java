@@ -10,7 +10,13 @@ public class Post {
 	String time;
 	String id;
 	String user;
-	
+	String statut;
+	public String getStatut() {
+		return statut;
+	}
+	public void setStatut(String statut) {
+		this.statut = statut;
+	}
 	public String getId() {
 		return id;
 	}

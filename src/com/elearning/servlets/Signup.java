@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.elearning.beans.User;
 import com.elearning.database.ConnectJDBC;
-import com.elearning.users.User;
 
 @WebServlet("/signup")
 public class Signup extends HttpServlet {

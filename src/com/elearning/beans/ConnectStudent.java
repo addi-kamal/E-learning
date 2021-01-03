@@ -3,74 +3,47 @@ package com.elearning.beans;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.elearning.db.Connexion;
 
 import java.sql.*;
 
-@ManagedBean  
+@ManagedBean
 @SessionScoped
 public class ConnectStudent {
 	String email;
 	String password;
 	
 	// JDBC driver name and database URL
-	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost:3306/MyDBUsers?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+	//static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+	//static final String DB_URL = "jdbc:mysql://localhost:3306/elearning?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
 	// database credentials
-	String USER = "JDBCUser";
-	String PASS = "PWDUSER";
+	//String USER = "root";
+	//String PASS = "rax5cv3bta7";
 	
 	public ConnectStudent() {	
 	}
-	public String verify1() {
-		Connection conn = null;		
-		PreparedStatement stmt = null;
-		boolean verified = false;
-		try {
-			Class.forName(JDBC_DRIVER); 
-			System.out.println("insertStudent() connecting....");	
-			// create connection to our local database
-			conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			String sql = "SELECT id FROM students WHERE email = "+"'"+email+"' AND password = '"+password+"';";
-
-			ResultSet rs = stmt.executeQuery(sql);		
-			Long idNewRows;
-			if(rs.next()) {
-				verified = true;
-			}
-			rs.close();
-			stmt.close();
-			conn.close();		
-		} catch (Exception se) {
-			return "erroe.xhtml";
-		}
-		if(verified) {
-			return "todo.xhtml";
-		}
-		else
-			return null;
-	}
+	
 	public String verify() {
-		// create connection to our local database
+		// create connection to local database
 			Connection conn = null;		
 			Statement stmt = null;
 			boolean verified = false;
 			try {
-				Class.forName("com.mysql.cj.jdbc.Driver"); 
-				System.out.println("insertStudent() connecting....");
-				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/MyDBUsers?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC", "JDBCUser", "PWDUSER");			
+				conn = new Connexion().ConnectToDB();
 				stmt = conn.createStatement();
 				String sql;
-				sql = "SELECT id FROM students WHERE email = "+"'"+email+"' AND password = '"+password+"';";
+				sql = "SELECT `id` FROM `users` WHERE `email` = "+"'"+email+"' AND `password` = '"+password+"';";
 				ResultSet rs = stmt.executeQuery(sql);
 				if(rs.next())
 					verified = true;
 				rs.close();
 				stmt.close();
 				conn.close();
+				
 			} catch (Exception se) {
 				return "erroe.xhtml";
 			}
-			if(verified) {
+			if(verified) {		
 				return "todo.xhtml";
 			}
 			else

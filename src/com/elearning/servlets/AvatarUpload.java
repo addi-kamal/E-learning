@@ -105,7 +105,7 @@ public class AvatarUpload extends HttpServlet {
 		                 
 		                 Connection connection = new Connexion().ConnectToDB();
 		                 String path_to_avatar = "images/user-pics/"+name;
-		                 
+		                 System.out.println(path_to_avatar);
 		                 String sql = "UPDATE users SET url_avatar = ? WHERE id = ?";
 		                 PreparedStatement stm = connection.prepareStatement(sql);
 		                 

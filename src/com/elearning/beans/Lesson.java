@@ -1,44 +1,32 @@
 package com.elearning.beans;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
-import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
 
-import com.elearning.db_javaee.CoursOperations;
-import com.elearning.db_javaee.LessonDAO;
+import com.elearning.database.LessonDAO;
 @ManagedBean(name="lesson")
 @RequestScoped
 public class Lesson {
-	private int id;
-	private String nom;
-	private String cours;
+	private String id;
+	private String titre;
 	private Date dateCreation;
-	private int cours_id;
+	private String cours_id;
 	private String createdBy;
-	public int getId() {
+	private String text;
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-	public String getNom() {
-		return nom;
+	public String getTitre() {
+		return titre;
 	}
-	public void setNom(String titre) {
-		this.nom = titre;
-	}
-	public String getCours() {
-		return cours;
-	}
-	public void setCours(String cours) {
-		this.cours = cours;
+	public void setTitre(String titre) {
+		this.titre = titre;
 	}
 	public Date getDateCreation() {
 		return dateCreation;
@@ -46,28 +34,36 @@ public class Lesson {
 	public void setDateCreation(Date dateCreation) {
 		this.dateCreation = dateCreation;
 	}
-	public int getCours_id() {
+	public String getCours_id() {
 		return cours_id;
 	}
-	public void setCours_id(int cours_id) {
+	public void setCours_id(String cours_id) {
 		this.cours_id = cours_id;
 	}
+	
 	public String getCreatedBy() {
 		return createdBy;
 	}
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
-	public String saveLesson(String cours,int idProf,Lesson l, String nom, String prenom) {
-        return LessonDAO.saveLesson(cours,idProf,l,nom,prenom);
-    }
-	public ArrayList<Lesson> lessonList(int id) {
+	public String getText() {
+		return text;
+	}
+	public void setText(String text) {
+		this.text = text;
+	}
+	public static String addLesson(Lesson l, String cours, String prof) {
+		return LessonDAO.addLesson(l,prof,cours);
+	}
+	public ArrayList<Lesson> lessonList(String id) {
 		ArrayList<Lesson> lessonList = LessonDAO.getListLesson(id);
 		System.out.println(lessonList);
         return lessonList;
-    } 
-	public String delete(int id) {
-        return LessonDAO.delete(id);
-    }
-	
+	}
+	public Lesson AfficheLesson(String id) {
+		Lesson lessonList = LessonDAO.getLesson(id);
+		System.out.println(lessonList.getText());
+        return lessonList;
+	}
 }
