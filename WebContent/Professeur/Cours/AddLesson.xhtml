@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+       xmlns:f="http://java.sun.com/jsf/core" 
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:p="http://primefaces.org/ui"> 
+
+	<h:head>
+		<title>Lesson Dashboard | Plateforme E-Learning</title>
+	</h:head>
+	
+	<h:body>
+		<h1>#{param['coursid']}</h1>
+	<!-- 	<h:form>    
+    <h3 style="margin-top:0">Basic</h3>
+    <p:textEditor widgetVar="editor1" value="#{Lesson.text}" height="300" style="margin-bottom:10px"/>
+     
+    <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="pi pi-save" />
+    <p:commandButton value="Clear" type="button" onclick="PF('editor1').clear();" icon="pi pi-times" />
+           
+    <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
+        <p:outputPanel id="display">
+            <h3 style="margin-top:0">Basic</h3>
+            <h:outputText value="#{editorView.text}" escape="false" />
+        </p:outputPanel>
+    </p:dialog>     
+</h:form>-->
+<!--      <div class="container">
+       <textarea name="text"></textarea>
+       <input type="submit" />
+    </div>
+    <script src="ckeditor/ckeditor.js"></script>
+    <script>
+    CKEDITOR.replace('text');
+    </script>-->
+				        <form action="/E-learning-project/Professeur/Cours/addLesson?coursid=#{param['coursid']}" style="width:80%;margin: 0 auto;" method="post" >
+				                <div class="form-group"> <label class="control-label">Titre :</label>
+								<input type="text" name="titre" class="form-control" required="true"/> 
+								</div>
+								<div class="form-group"> <label class="control-label">Id :</label>
+								<input type="text" name="Id" class="form-control" value="#{param['coursid']}" readonly="true"/> 
+								</div>
+								<div class="form-group"> <label class="control-label">Texte :</label>
+								<textarea type="text" name="text" class="form-control" required="true"/>
+								</div>
+								<input type="submit" value="Ajouter" class="btn btn-primary active " />        
+     
+					    </form>
+    <a href=""></a>
+	<script src="ckeditor/ckeditor.js"></script>
+    <script>
+    CKEDITOR.replace('text');
+    </script>
+	</h:body>
+	
+	
+	
+	
+	
+</html>
