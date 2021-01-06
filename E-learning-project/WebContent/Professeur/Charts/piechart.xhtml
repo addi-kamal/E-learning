@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+       xmlns:f="http://java.sun.com/jsf/core" 
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:p="http://primefaces.org/ui"> 
+    <h:head>
+        <title>Chart</title>
+    </h:head>
+    <h:body>
+      <h2>Chart</h2>
+      <h:form>
+	<p:commandButton value="Graficar" actionListner="#{PieChartBean.listar()}" update="panel"/>
+	<h:panelGroup id="panel" layout="block">
+	<p:chart type="pie" model="#{PieChartBean.pieModel}" style="width:400px;height:300px" rendered="#{PieChartBean.pieModel != null}"></p:chart>
+	</h:panelGroup>
+        </h:form> 
+      
+    </h:body>
+</html>

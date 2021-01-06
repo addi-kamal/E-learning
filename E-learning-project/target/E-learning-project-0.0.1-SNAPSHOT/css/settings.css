@@ -1,0 +1,126 @@
+@charset "UTF-8";
+body{
+    overflow-x: hidden;
+    font-family: sans-serif;
+}
+
+.contain{
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
+    position : relative;
+    margin-top: 5%;
+}
+
+.leftbox{
+    float: left;
+    top:-5%;
+    left:5%;
+    position: absolute;
+    width: 20%;
+    height: 110%;
+}
+
+
+nav a{
+    padding: 15px 0 0 20px;   
+    font-size: 1.1em;
+    display: block;
+    transition: all .3s ease-in-out;
+}
+nav a:hover{
+    cursor: pointer;
+    color:#828489;
+}
+
+nav a.active{
+    color: #4D7EA8;
+    font-weight: bold;
+}
+nav span{
+    display: block;
+    padding-top: 15px;
+    color: #272932;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+
+
+
+
+.rightbox{
+    width: 60%;
+    margin-left: 32%;
+}
+
+.tabShow{
+    transition: all .5s ease-in;
+    width: 80%;
+}
+.rightbox h1{
+    color: #272932;
+    font-size: 1.2rem;
+    margin-top: 40px;
+    margin-bottom: 35px;
+}
+
+.rightbox h2{
+   color: #4D7EA8;
+   text-transform: uppercase;
+   font-size: 10px;
+   letter-spacing: 1px;
+   margin-left: 2px;
+   margin-top: 10px;
+}
+
+.rightbox input{
+    width: 250px;
+}
+
+.rightbox input{
+    border : 1px solid #828489;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    color: #828489;
+    outline: none;
+}
+
+.rightbox input::placeholder{
+    color: #ccc;
+}
+
+.btn{
+    text-transform: uppercase;
+    padding: 10px;
+    margin-left: 5px;
+    font-size: 15px;
+    border: none;
+    color: #fff;
+    background-color: #9E90A2;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+.delete-account{
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 10px;
+    background-color:rgba(255, 0, 0, .9);
+    border :none;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+hr{
+    margin-top: 50px;
+}
+
+.tabShow{
+    display: none;
+}
+

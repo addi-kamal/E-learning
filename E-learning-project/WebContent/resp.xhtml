@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+	<h:head>
+		<title>#{search.query} - Recherche des cours | Plateforme E-Learning </title>
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/modal.css" />
+		<link rel="stylesheet" href="css/footer.css" />
+		<link rel="stylesheet" href="css/header.css" />
+	
+	<style>
+	
+		.search-table{
+		border-collapse: collapse;
+		margin-left: 30%;
+		margin-top: 50px;
+		}
+		
+		td{
+			border: 1px solid black;
+			padding: 10px;
+		}
+	</style>
+	
+	
+	</h:head>
+	
+	
+	
+	<h:body>
+	<div class="container">
+	<ui:insert>
+			<ui:include src="common/header.xhtml" />
+	</ui:insert>	
+	<div class="body">
+		<table class="search-table">
+		<tr>
+			<th>Titre</th>
+			<th>Date de creation</th>
+		</tr>
+		<ui:repeat var="course" value="#{search.courses}" varStatus="status">
+			<tr>
+				<td>#{course.titre}</td>
+				<!-- <td>#{course.prof.nom} #{course.prof.prenom}</td> -->
+				<td>#{course.datecreation}</td>
+			</tr>
+		</ui:repeat>
+	</table>
+	
+	
+	
+	</div>
+	
+	</div>	
+	
+	</h:body>
+	
+</html>

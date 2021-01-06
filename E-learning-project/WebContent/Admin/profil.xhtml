@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core">
+	  
+	<h:head>
+	        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+         <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+        <style type="text/css">
+        .tableUpdated {
+            width: 90% !important;
+            margin: 17px 58px 0 !important;
+        }    
+        .btnSpace {
+            margin-top:8px;
+        } 
+        </style>
+		<title>#{prenom} #{nom} |Admin Plateforme E-Learning</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		
+		
+		<!--fONTS-->
+
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<!--<link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet" /> -->
+		
+		<!--End fONTS-->
+		
+		
+		<link rel="stylesheet" href="css/modal-email.css" />
+		<link rel="stylesheet" href="css/header.css" />
+		<link rel="stylesheet" href="css/body.css" />
+	</h:head>
+	<h:body>
+		<div class="container">
+			
+			<!-- Header -->
+			<div class="header">
+			 <ui:insert>
+				<ui:include src="/common/loggedinheaderAdmin.xhtml" />
+			</ui:insert>
+			 <div class="bg-image">
+				<img src="images/user-pics/bg-user-placeholder.png" alt="bg-image"/>
+			</div>
+			</div>
+
+			<!--Avatar image-->
+			<div class="avatar">
+				<img style="width: 8%; height: 20%;object-fit : cover" src="#{url_avatar}" />
+				<form action="avatarupload" enctype="multipart/form-data" method="post">
+					<input type="file" name="file" accept="image/*" required="true" />
+					<input type="submit" value="mettre a jour" />
+				</form>
+
+			</div>
+
+
+
+			<!-- End Header -->
+			
+			
+			<div class="body">
+				<!-- Start .body -->
+				
+				<!-- <ui:insert>
+					<ui:include src="common/modal-email.xhtml" />
+				</ui:insert> -->
+			
+				<!-- Start Email modal box -->
+				<div id="email-modal">
+            			<div class="email-box animate">
+                		<span onclick="document.getElementById('email-modal').style.display='none'" class="close">&#215;</span>
+                		<h4>changer l'email</h4> <br />
+              			<form action="verify-email" method="post">
+                			<div class="email-textbox" >
+                				<input type="email" name="new-email" placeholder="Nouveau Email" required="ture" /> 
+                			</div>
+                			<input class="change-email-btn" type="submit" value="CONFIRMER" name="submit" />
+            			</form>
+            		</div>
+        		</div>
+        		<!-- End Email Modal box -->
+        		
+        		<!-- Start Pass Modal box -->
+        		<div id="pass-modal">
+            			<div class="email-box animate">
+                		<span onclick="document.getElementById('pass-modal').style.display='none'" class="close">&#215;</span>
+                		<h4>changer l'email</h4> <br />
+              			<form action="change-password" method="post">
+              				<div class="email-textbox" >
+                				<input type="password" name="old-pass" placeholder="Ancien Mot de passe" required="ture" /> 
+                			</div>
+                			<div class="email-textbox" >
+                				<input type="password" name="new-pass" placeholder="Nouveau Mot de passe" required="ture" /> 
+                			</div>
+                			<div class="email-textbox" >
+                				<input type="password" name="r-new-pass" placeholder="Retaper votre mot de passe" required="ture" /> 
+                			</div>
+                			<input class="change-email-btn" type="submit" value="CONFIRMER" name="submit" />
+            			</form>
+            		</div>
+        		</div>
+        		<!-- End Pass Modal Box -->
+        		
+        
+        <script>
+    		var modal = document.getElementById('email-modal');
+ 			window.onclick = function(event) {
+        		if (event.target == modal) {
+        			modal.style.display = "none";
+    			}
+			}
+ 			var modal = document.getElementById('pass-modal');
+ 			window.onclick = function(event) {
+        		if (event.target == modal) {
+        			modal.style.display = "none";
+    			}
+			}
+		</script>
+				<div class="column left">
+					<div class="inner-box">
+						<h3>À propos de moi</h3>
+						<h4><span style="text-transform: capitalize;margin: 25px 50px 75px 100px;">#{prenom} #{nom}</span></h4>
+						<h4 style="margin: 25px 50px 75px 100px;">#{email}<button onclick="document.getElementById('email-modal').style.display='block'" id="modifier-email">modifier l'email</button></h4>
+						<br />
+						<!--<h4>Mot de passe<button onclick="document.getElementById('pass-modal').style.display='block'" id="modifier-email">modifier le mot de passe</button></h4>-->
+					</div>
+				</div>
+				<div class="column right">
+					<div class="inner-box">
+						<h3>Éducation</h3>
+					</div>								    
+				</div>
+						        					<div class="inner-box">
+					<h:form id="userForm">
+        <h:dataTable id="userTable" binding="#{table}" value="#{user.userList()}" var="user" class="table table-striped table-hover table-bordered tableUpdated text-center">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                <h:outputText value="#{user.currentid}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nom</f:facet>
+                <h:outputText value="#{user.nom}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Prenom</f:facet>
+                <h:outputText value="#{user.prenom}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                <h:outputText value="#{user.email}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Password</f:facet>
+                <h:outputText value="#{user.password}" />
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Statut</f:facet>
+                <h:outputText value="#{user.user_type}" />
+            </h:column>
+            <h:column>
+                <h:commandButton action="#{user.delete(user.currentid)}" value="Supprimer"  class="btn btn-danger active" />
+            </h:column>
+        </h:dataTable>           
+    </h:form>
+					</div>
+				<!-- End .body -->
+			</div>
+		
+		
+		
+		<!-- End .container -->
+		</div>
+		<!--<img src="images/default-avatar.png" alt="" srcset="" />-->
+	
+	
+	
+	
+	
+	</h:body>
+</html>

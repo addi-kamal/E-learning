@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://java.sun.com/jsf/passthrough">
+    <h:head>
+	      <title>S'inscrire</title>
+	      <meta charset="utf-8" name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+	      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	      <link rel="stylesheet" href="/E-learning-project/Etudiant/app.v2.css" type="text/css"/>
+	      <link rel="stylesheet" href="/E-learning-project/Etudiant/font.css" type="text/css"/>
+    </h:head>
+    <h:body>
+        <section id="content" class="m-t-lg wrapper-md animated fadeInUp">
+         <a class="nav-brand">S'inscrire</a> 
+         <div class="row m-n">
+            <div class="col-md-4 col-md-offset-4 m-t-lg">
+               <section class="panel">
+                  <header class="panel-heading text-center"> Sign up </header>
+				        <h:form style="width:250px;margin: 0 auto;">
+				        		
+								<div class="form-group"> <label class="control-label">Prenom :</label>
+								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.prenom}"/> 
+								</div>
+								<div class="form-group"> <label class="control-label">Nom :</label>
+								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.nom}"/> 
+								</div>
+								<div class="form-group"> <label class="control-label">Email :</label>
+								<h:inputText p:type="email" p:placeholder="username@example.com" class="form-control" value="#{addStudent.student.email}"/> 
+								</div>
+								<div class="form-group"> <label class="control-label">Telephone :</label>
+								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.telephone}"/> 
+								</div>
+								<div class="form-group"> <label class="control-label">CNE :</label>
+								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.CNE}"/> 
+								</div>
+								<div class="form-group"> <label class="control-label">Code Postal :</label>
+								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.code_postal}"/> 
+								</div>
+								<div class="form-group"> <label class="control-label">Date de naissance :</label>
+								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.dateNaissance}"/> 
+								</div>
+								<div class="form-group"> <label class="control-label">Niveau :</label>
+								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.niveau}"/> 
+								</div>
+								<div class="form-group"> <label class="control-label">Pays :</label>
+								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.pays}"/> 
+								</div>
+								<div class="form-group"> <label class="control-label">Ville :</label>
+								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.ville}"/> 
+								</div>
+								<div class="form-group"> <label class="control-label">Sexe :</label>
+								<h:inputText p:type="text" class="form-control" value="#{addStudent.student.sexe}"/> 
+								</div>
+								<div class="form-group"> <label class="control-label">Password</label> 
+	                            <h:inputSecret p:type="password" id="inputPassword" class="form-control" value="#{addStudent.student.password}"/> 
+	                            </div>
+	                        
+	                        <h:commandButton action="#{addStudent.saveStudent()}" value="S'inscrire" class="btn btn-info" style="float:left"/>	
+	                        <h:commandButton action="SignIn" value="Se connecter" class="btn btn-info" style="float:right"/>
+	                        
+					    </h:form>
+               </section>
+            </div>
+         </div>
+      </section>
+    </h:body>
+</html>

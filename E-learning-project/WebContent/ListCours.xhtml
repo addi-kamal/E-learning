@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+       xmlns:f="http://java.sun.com/jsf/core" 
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:ui="http://java.sun.com/jsf/facelets"> 
+    <h:head>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+         <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+        <title>Liste cours</title>
+        <style type="text/css">
+        .tableUpdated {
+            width: 90% !important;
+            margin: 17px 58px 0 !important;
+        }    
+        .btnSpace {
+            margin-top:8px;
+        } 
+    </style>
+    		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/modal.css" />
+		<link rel="stylesheet" href="css/footer.css" />
+		<link rel="stylesheet" href="css/header.css" />
+    </h:head>
+    <h:body>
+    			<ui:insert>
+					<ui:include src="common/mainheader.xhtml" />
+				</ui:insert>
+    <h:form id="coursForm">
+        <h:dataTable id="coursTable" binding="#{table}" value="#{course.coursAllList()}" var="course" class="table table-striped table-hover table-bordered tableUpdated text-center">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                <h:outputText value="#{table.rowIndex + 1}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Titre</f:facet>
+                <a href="Professeur/Cours/Espace-cours-Etudiant.xhtml?coursid=#{course.id_cours}"><h:outputText value="#{course.titre}" /></a>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Subject</f:facet>
+                <h:outputText value="#{course.id_sujet}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Date de creation</f:facet>
+                <h:outputText value="#{course.datecreation}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Language</f:facet>
+                <h:outputText value="#{course.language}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Temps estime</f:facet>
+                <h:outputText value="#{course.estimated_time}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Prof</f:facet>
+                <h:outputText value="#{course.createdby}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Prix</f:facet>
+                <h:outputText value="#{course.prix}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Description</f:facet>
+                <h:outputText value="#{course.desc}" />
+            </h:column>        </h:dataTable>
+    </h:form>
+    	<ui:insert>
+			<ui:include src="common/footer.xhtml" />
+		</ui:insert>
+</h:body>
+</html>

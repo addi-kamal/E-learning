@@ -1,0 +1,101 @@
+<ui:composition
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+      <!-- CSS files -->
+      <style>
+      	.header{
+              padding-top: 30px;
+              background: none;
+              padding-bottom: 400px;
+          }
+        .login-signup{
+        	font-family: 'Dosis', sans-serif;
+            float: right;
+            height: 34px;
+            margin-right: 15px;
+        }
+        .lbtn{
+            height: 100%;
+            border: none;
+            text-transform: uppercase;
+            color: #F1F1F1;
+            font-weight: bold;
+            border-radius: 25px;
+            padding: 5px;
+            background: none;
+            cursor: pointer;
+            margin: 14px 0 0 10px;
+        }
+        .lbtn:hover{
+            -webkit-box-shadow: 0px 0px 17px 5px rgba(0,0,0,0.25); 
+            box-shadow: 0px 0px 17px 5px rgba(0,0,0,0.25);
+            transition: box-shadow -webkit-box-shadow 1s;
+        }
+        .login{
+        	background-color: #B6C2D9;
+        }
+        .signup{
+        	background-color: #4D7EA8;
+        }
+        .nav li a, .search button i{
+            color: #272932;
+        }
+        .nav li a:hover{
+            color: #272932;
+        }
+        .search{
+            border:1px solid #272932;
+        }
+        .search input{
+            color: #272932;
+        }
+        .search:focus-within{
+            background: none;
+        }
+        .home-image{
+            background-image: url(images/bg-placeholder.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            top: 0;
+        	min-height: 90%;
+        	width: 100%;
+        	margin-top: 0 ;
+        }
+      </style>
+      <!-- End CSS files -->
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <!-- End Icons -->
+      <div class="home-image">
+      <div class="header">
+
+			<a href=""><img class="logo" src="images/logo-placeholder.jpg" /></a>
+			<ul class="nav">
+				<li><a href="">cours</a></li>
+				<li><a href="">instructeurs</a></li>
+				<li><a href="">element2</a></li>
+			</ul>
+			<form action="/Search" method="get">
+				<div class="search">
+					<input type="text" placeholder="chercher..." name="search" />
+					<button type="submit" name="submit-search"><i class="fa fa-search"></i></button>
+				 </div>
+			 </form>
+			 
+			 <div class="login-signup">
+                <button class="lbtn signup">S'inscrire</button>
+                <button class="lbtn login" onclick="document.getElementById('modal').style.display='block'" id="loginbtn">se connecter</button>
+			 </div>			 
+	</div>
+    </div>
+    <ui:insert>
+        <ui:include src="modal.xhtml" />
+    </ui:insert>
+
+
+
+</ui:composition>

@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+		<div class="header">
+				<a href=""><img class="logo" src="images/logo-placeholder.jpg" /></a>
+				<ul class="nav">
+					<li><a href="">cours</a></li>
+					<li><a href="">element1</a></li>
+					<li><a href="">element2</a></li>
+				</ul>
+				<form action="" method="get">
+					<div class="search">
+					  <input type="text" placeholder="chercher..." name="search" />
+					  <button type="submit" name="submit-search"><i class="fa fa-search"></i></button>
+				  </div>
+			  	</form>
+			  	<div class="dropdown">
+					<i class="dropbtn"><span style="text-transform: capitalize;">#{prenom} #{nom}</span><i class="fa fa-chevron-down"></i></i>
+					<div class="dropdown-content">
+						<a href="profil">profil</a>
+						<a href="settings">réglages</a>
+						<a href="logout">Deconnexion</a>
+					</div>
+				</div>
+			<div class="bg-image">
+				<img src="images/user-pics/bg-user-placeholder.png" alt="bg-image"/>
+			</div>
+			</div>
+
+
+</ui:composition>

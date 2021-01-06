@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+      <div id="modal">
+            <div class="login-box animate">
+                <span onclick="document.getElementById('modal').style.display='none'" class="close">&#215;</span>
+                <h1>se connecter</h1> <br />
+              	<form action="login" method="post">
+                	<div class="textbox" >
+                		<input type="email" name="email" placeholder="Email" required="ture" /> 
+                	</div>
+                	<div class="textbox">
+                		<input type="password" name="password" placeholder="Mot de passe" required="true" />
+                	</div>
+                	<input class="login-btn" type="submit" value="SE CONNECTER" name="submit" />
+            	</form>
+            </div>
+        </div>
+
+		<script>
+    		var modal = document.getElementById('modal');
+ 			window.onclick = function(event) {
+        		if (event.target == modal) {
+        			modal.style.display = "none";
+    			}
+			}
+		</script>
+
+</ui:composition>
