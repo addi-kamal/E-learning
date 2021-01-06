@@ -1,0 +1,120 @@
+<ui:composition
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      
+      <!-- CSS files -->
+      <style>
+      	.header{
+              padding-top: 30px;
+              background: none;
+              padding-bottom: 400px;
+          }
+        .login-signup{
+        	font-family: 'Dosis', sans-serif;
+            float: right;
+            height: 34px;
+            margin-right: 15px;
+        }
+        .lbtn{
+        	text-decoration: none;
+            height: 100%;
+            border: none;
+            text-transform: uppercase;
+            color: #F1F1F1;
+            font-weight: bold;
+            border-radius: 25px;
+            padding: 5px;
+            background: none;
+            cursor: pointer;
+            margin: 14px 0 0 10px;
+        }
+        .lbtn:hover{
+            -webkit-box-shadow: 0px 0px 17px 5px rgba(0,0,0,0.25); 
+            box-shadow: 0px 0px 17px 5px rgba(0,0,0,0.25);
+            transition: box-shadow -webkit-box-shadow 1s;
+        }
+        .login{
+        	background-color: #B6C2D9;
+        }
+        .signup{
+        	background-color: #4D7EA8;
+        }
+        .nav li a, .search button i{
+            color: #272932;
+        }
+        .nav li a:hover{
+            color: #272932;
+        }
+        .search{
+            border:1px solid #272932;
+        }
+        .search input{
+            color: #272932;
+        }
+        .search:focus-within{
+            background: none;
+        }
+        .home-image{
+            background-image: url(images/bg-placeholder.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            top: 0;
+        	min-height: 90%;
+        	width: 100%;
+        	margin-top: 0 ;
+        }
+      </style>
+      <!-- End CSS files -->
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <!-- End Icons -->
+      <div class="home-image">
+      <div class="header">
+
+			<a href="index.xhtml"><img class="logo-main" src="images/logoAjiTa9raa.png" /></a>
+			<ul class="nav">
+				<li><a href="/E-learning-project/ListCours.xhtml">cours</a></li>
+				<li><a href="">instructeurs</a></li>
+				<li><a href="">Admin</a></li>
+				<li><a href="">Statistiques</a></li>
+			</ul>
+			<h:form>
+				<div class="search">
+					<h:inputText a:placeholder="chercher..." name="search-query" value="#{search.query}"></h:inputText>
+					<h:commandLink class="submit-search" action="#{search.lookup}"><i class='fa fa-search' /></h:commandLink>
+				 </div>
+			 </h:form>
+			 
+			 
+			 <c:choose>
+    			<c:when test="#{loggedIn eq true}">
+    				<div class="dropdown">
+						<i class="dropbtn"><span style="text-transform: capitalize;">#{prenom} #{nom}</span><i class="fa fa-chevron-down"></i></i>
+						<div class="dropdown-content">
+							<a href="profil">profil</a>
+							<a href="settings">réglages</a>
+							<a href="logout">Deconnexion</a>
+						</div>
+					</div>
+    			</c:when>
+    			<c:otherwise>
+    				 <div class="login-signup">
+                		<a class="lbtn signup" href="/E-learning-project/CreateAccount.xhtml">S'inscrire</a>
+                		<button class="lbtn login" onclick="document.getElementById('modal').style.display='block'" id="loginbtn">se connecter</button>
+			 		</div>		
+    			</c:otherwise>
+			</c:choose>	 
+	</div>
+    </div>
+    <ui:insert>
+        <ui:include src="modal.xhtml" />
+    </ui:insert>
+
+
+
+</ui:composition>
