@@ -1,3 +1,9 @@
 # E-learning
-Comme toute entreprise, les hôtels cherchent également à réaliser des bénéfices. 
-Ce projet propose un modèle qui prédit si la réservation est susceptible d'être annulée, ce qui pourrait être une bonne indication pour les hôtels, car ils préfèrent peut-être accepter en premier les réservations à faible risque.
+c'est un projet JEE, le but est de développer une plateforme e-learning, qui permet aux étudiants de suivi leur cours en ligne et aux professeurs d'assurer ces cours.
+outils utilisés :
+
+    - Java EE, JSF, JSP
+    - MySQL
+    - HTML5, CSS
+    - Github remote project
+    - Scrum
